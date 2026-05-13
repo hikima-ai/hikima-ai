@@ -1,20 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#030712" />
-    <meta name="description" content="Hikima AI - Intelligent Assistant by Haruna" />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-    <title>Hikima AI — by Haruna</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-  </body>
+<html lang="ha">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hikima AI - Haruna Alasan</title>
+    <style>
+        :root { --primary: #2ecc71; --secondary: #1a1a1a; --accent: #f1c40f; --text: #ffffff; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--secondary); color: var(--text); margin: 0; padding: 0; }
+        header { background: linear-gradient(45deg, #2ecc71, #27ae60); padding: 30px; text-align: center; border-bottom: 5px solid var(--accent); }
+        .creator-section { background: #333; padding: 15px; text-align: center; font-size: 0.9rem; border-radius: 0 0 20px 20px; }
+        .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 20px; }
+        .card { background: #262626; border-radius: 15px; padding: 20px; border: 1px solid #444; }
+        .chat-box { height: 250px; background: #000; padding: 15px; overflow-y: auto; border-radius: 10px; margin-bottom: 15px; border: 1px solid var(--primary); font-family: monospace; }
+        input, button { padding: 12px; border-radius: 8px; border: none; font-size: 1rem; }
+        input { width: 70%; background: #333; color: white; }
+        button { background: var(--primary); color: white; cursor: pointer; width: 25%; font-weight: bold; }
+        .highlight { color: var(--accent); font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>HIKIMA AI 🌍</h1>
+    <p>Basira, Noma, da Fasahar Blockchain</p>
+</header>
+
+<div class="creator-section">
+    An gina ta ne da tunanin <span class="highlight">Haruna Alasan</span> daga <span class="highlight">Kazaure, Jigawa State</span>.
+</div>
+
+<div class="container">
+    <div class="card">
+        <h2>💬 Hikima Chat</h2>
+        <div class="chat-box" id="chat-box">
+            <p style="color: #0f0;">> Hikima AI: Barka da zuwa! Ni ne kwakwalwar da Haruna Alasan ya samar. Ta yaya zan taimake ka yau?</p>
+        </div>
+        <div style="display: flex; gap: 5px;">
+            <input type="text" id="user-input" placeholder="Yi tambaya...">
+            <button onclick="sendMessage()">Aika</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>🌾 Agri-Brain</h2>
+        <p>Ilimin Noma da Drones.</p>
+        <button style="width: 100%;" onclick="alert('Nazarin Kasa: 100%. Komai yana tafiya dai-dai.')">Duba Yanayin Gona</button>
+    </div>
+</div>
+
+<script>
+    function sendMessage() {
+        const input = document.getElementById('user-input');
+        const box = document.getElementById('chat-box');
+        const text = input.value.trim().toLowerCase();
+        if (text === "") return;
+        box.innerHTML += `<p style="color:white;">Ku: ${input.value}</p>`;
+        if(text.includes("waye ya samar dake") || text.includes("owner")) {
+            setTimeout(() => {
+                box.innerHTML += `<p style="color:#0f0;">Hikima AI: Mahaifina shi ne <b>Haruna Alasan</b> daga Kazaure.</p>`;
+                box.scrollTop = box.scrollHeight;
+            }, 500);
+        } else {
+            setTimeout(() => {
+                box.innerHTML += `<p style="color:#0f0;">Hikima AI: Ina nazarin tambayarka...</p>`;
+                box.scrollTop = box.scrollHeight;
+            }, 500);
+        }
+        input.value = "";
+    }
+</script>
+
+</body>
 </html>
